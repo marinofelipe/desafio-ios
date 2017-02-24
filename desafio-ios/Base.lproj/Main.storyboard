@@ -24,6 +24,19 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fWG-fg-ZLC">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PrototypeCell" id="qjg-5K-e5B">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qjg-5K-e5B" id="uOQ-9B-s2i">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="gH0-Kn-MPZ" kind="show" identifier="RepositoryCellTap" id="RLT-93-nAJ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <sections/>
                             </tableView>
                         </subviews>
@@ -46,10 +59,10 @@
             </objects>
             <point key="canvasLocation" x="1055.2" y="122.78860569715144"/>
         </scene>
-        <!--View Controller-->
+        <!--Repository Detail View Controller-->
         <scene sceneID="iIY-jj-0z5">
             <objects>
-                <viewController id="gH0-Kn-MPZ" sceneMemberID="viewController">
+                <viewController id="gH0-Kn-MPZ" customClass="RepositoryDetailViewController" customModule="desafio_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="w9g-3j-Iky"/>
                         <viewControllerLayoutGuide type="bottom" id="QdN-ba-WsB"/>
@@ -57,12 +70,27 @@
                     <view key="view" contentMode="scaleToFill" id="0To-c5-55L">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gDR-vn-ORq">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QdN-ba-WsB" firstAttribute="top" secondItem="gDR-vn-ORq" secondAttribute="bottom" id="8Ot-eA-XMN"/>
+                            <constraint firstItem="gDR-vn-ORq" firstAttribute="leading" secondItem="0To-c5-55L" secondAttribute="leading" id="Dyi-Ly-B64"/>
+                            <constraint firstItem="gDR-vn-ORq" firstAttribute="top" secondItem="w9g-3j-Iky" secondAttribute="bottom" constant="-64" id="LUk-lJ-1AW"/>
+                            <constraint firstAttribute="trailing" secondItem="gDR-vn-ORq" secondAttribute="trailing" id="qdp-JX-HyU"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="repositoryDetailTableView" destination="gDR-vn-ORq" id="PwQ-8Q-e5i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q8C-j8-ExS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1914" y="123"/>
+            <point key="canvasLocation" x="1912.8" y="122.78860569715144"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Bgr-Vz-8pB">

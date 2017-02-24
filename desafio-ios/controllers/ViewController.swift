@@ -14,42 +14,27 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    
-        
-        repositoriesTableView.delegate = self
-        repositoriesTableView.dataSource = self
-        
-        repositoriesTableView.register(UINib.init(nibName: "RepositoryTableViewCell", bundle: nil), forCellReuseIdentifier: "RepositoryCell")
 
-        
+        setupRepositoriesTableView()
         fetchRepositories()
     }
     
-//    // MARK: - Manage Transitions/segues to next screen
-//    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-//        
-//        let selectedCell = sender as! UITableViewCell
-//        let indexPath = repositoriesTableView.indexPath(for: selectedCell)
-//        
-//        if indexPath?.section == 0 {
-//            return true
-//        }
-//        else {
-//            return false
-//        }
-//    }
-//    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        
-//        if segue.identifier == "tableViewCellTap" {
+    // MARK: - Setup Table View
+    func setupRepositoriesTableView() {
+        repositoriesTableView.delegate = self
+        repositoriesTableView.dataSource = self
+        repositoriesTableView.register(UINib.init(nibName: "RepositoryTableViewCell", bundle: nil), forCellReuseIdentifier: "RepositoryCell")
+        repositoriesTableView.separatorStyle = .singleLineEtched
+    }
+    
+    // MARK: - Manage Transitions/segues to next screen
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+//        if segue.identifier == "RepositoryCellTap" {
 //            let selectedCell = sender as! UITableViewCell
 //            let indexPath = repositoriesTableView.indexPath(for: selectedCell)
-//            let destinationViewController = segue.destination as? DetailViewController
-//            
-//            destinationViewController?.sourceViewCellText = tableViewDataSource1stSection[(indexPath?.row)!]
 //        }
-//    }
+    }
     
     
     func fetchRepositories() {
@@ -70,7 +55,6 @@ extension ViewController: UITableViewDelegate {
         let cell = repositoriesTableView.dequeueReusableCell(withIdentifier: "RepositoryCell") as! RepositoryTableViewCell
         
         let height = cell.frame.height
-        
         return height;
     }
     
@@ -79,7 +63,7 @@ extension ViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 5.0
+        return 10.0
     }
 }
 
@@ -87,13 +71,14 @@ extension ViewController: UITableViewDelegate {
 extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return 10;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             
         let cell = repositoriesTableView.dequeueReusableCell(withIdentifier: "RepositoryCell", for: indexPath) as! RepositoryTableViewCell
+        
+        cell.selectionStyle = .none
         
         cell.username?.text = "marinofelipe"
         cell.nameAndLastName?.text = "Felipe Marino"
@@ -103,6 +88,13 @@ extension ViewController: UITableViewDataSource {
         cell.starsCount?.text = "1411"
     
         return cell;
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        print("row selected: \(indexPath.row)")
+        
+        self.performSegue(withIdentifier: "RepositoryCellTap", sender:tableView.cellForRow(at: indexPath))
     }
 }
 
