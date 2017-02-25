@@ -8,12 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class RepositoriesViewController: UIViewController {
 
     @IBOutlet weak var repositoriesTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.backBarButtonItem?.plain()
 
         setupRepositoriesTableView()
         fetchRepositories()
@@ -44,7 +46,7 @@ class ViewController: UIViewController {
 }
 
 // MARK: - TableView Delegate
-extension ViewController: UITableViewDelegate {
+extension RepositoriesViewController: UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1;
@@ -68,7 +70,7 @@ extension ViewController: UITableViewDelegate {
 }
 
 // MARK: - TableView DataSource
-extension ViewController: UITableViewDataSource {
+extension RepositoriesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10;
@@ -99,7 +101,7 @@ extension ViewController: UITableViewDataSource {
 }
 
 // MARK: - ScrollView Delegate
-extension ViewController: UIScrollViewDelegate {
+extension RepositoriesViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         

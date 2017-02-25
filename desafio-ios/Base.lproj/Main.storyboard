@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="NDr-23-7lk">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="NDr-23-7lk">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,7 +12,7 @@
         <!--GitHub JavaPop-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="GitHub JavaPop" id="BYZ-38-t0r" customClass="ViewController" customModule="desafio_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="GitHub JavaPop" id="BYZ-38-t0r" customClass="RepositoriesViewController" customModule="desafio_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -50,6 +50,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="GitHub JavaPop" id="mRu-02-2wU">
                         <barButtonItem key="backBarButtonItem" title="Back" id="pBf-An-81x"/>
+                        <barButtonItem key="leftBarButtonItem" enabled="NO" id="pMy-zD-u0c">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rlz-Sv-MGe" customClass="CustomHamburguerItem" customModule="desafio_ios" customModuleProvider="target">
+                                <rect key="frame" x="16" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="repositoriesTableView" destination="fWG-fg-ZLC" id="1UJ-1z-X9q"/>
