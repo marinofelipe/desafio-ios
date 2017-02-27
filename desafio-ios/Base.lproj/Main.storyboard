@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fWG-fg-ZLC">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="8" width="375" height="659"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PrototypeCell" id="qjg-5K-e5B">
@@ -39,12 +39,16 @@
                                 </prototypes>
                                 <sections/>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5nA-MG-GHb">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="fWG-fg-ZLC" secondAttribute="trailing" id="2ek-c0-bmE"/>
                             <constraint firstItem="fWG-fg-ZLC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="CqF-Kw-zmR"/>
-                            <constraint firstItem="fWG-fg-ZLC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-64" id="OZL-Pz-oNf"/>
+                            <constraint firstItem="fWG-fg-ZLC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-56" id="OZL-Pz-oNf"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fWG-fg-ZLC" secondAttribute="bottom" id="UGQ-Ho-2Ud"/>
                         </constraints>
                     </view>
@@ -58,17 +62,18 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="repositoriesTableView" destination="fWG-fg-ZLC" id="1UJ-1z-X9q"/>
+                        <outlet property="activityIndicator" destination="5nA-MG-GHb" id="E2N-Y7-cvd"/>
+                        <outlet property="tableView" destination="fWG-fg-ZLC" id="x07-OG-jmA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1055.2" y="122.78860569715144"/>
         </scene>
-        <!--Repository Detail View Controller-->
+        <!--Pull Request View Controller-->
         <scene sceneID="iIY-jj-0z5">
             <objects>
-                <viewController id="gH0-Kn-MPZ" customClass="RepositoryDetailViewController" customModule="desafio_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gH0-Kn-MPZ" customClass="PullRequestViewController" customModule="desafio_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="w9g-3j-Iky"/>
                         <viewControllerLayoutGuide type="bottom" id="QdN-ba-WsB"/>
@@ -81,6 +86,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="JZf-Zp-CXA">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -91,7 +100,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="repositoryDetailTableView" destination="gDR-vn-ORq" id="PwQ-8Q-e5i"/>
+                        <outlet property="activityIndicator" destination="JZf-Zp-CXA" id="xe8-j2-p1x"/>
+                        <outlet property="tableView" destination="gDR-vn-ORq" id="Scp-vw-c7h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q8C-j8-ExS" userLabel="First Responder" sceneMemberID="firstResponder"/>

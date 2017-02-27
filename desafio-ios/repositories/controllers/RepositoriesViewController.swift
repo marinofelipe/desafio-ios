@@ -10,10 +10,18 @@ import UIKit
 
 class RepositoriesViewController: UIViewController {
 
-    @IBOutlet weak var repositoriesTableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
+    fileprivate var repositories:[Repository] = []
+    fileprivate var page = 0
+    fileprivate var isLoading = true
+    fileprivate var hasConnectionError = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        activityIndicator.startAnimating()
         
         navigationItem.backBarButtonItem?.plain()
 
@@ -22,25 +30,60 @@ class RepositoriesViewController: UIViewController {
     }
     
     // MARK: - Setup Table View
-    func setupRepositoriesTableView() {
-        repositoriesTableView.delegate = self
-        repositoriesTableView.dataSource = self
-        repositoriesTableView.register(UINib.init(nibName: "RepositoryTableViewCell", bundle: nil), forCellReuseIdentifier: "RepositoryCell")
-        repositoriesTableView.separatorStyle = .singleLineEtched
+    fileprivate func setupRepositoriesTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UINib.init(nibName: "RepositoryTableViewCell", bundle: nil), forCellReuseIdentifier: "RepositoryCell")
+        tableView.separatorStyle = .singleLineEtched
+    }
+    
+    // MARK: - Fetch Repositories
+    fileprivate func fetchRepositories() {
+        self.isLoading = true
+        
+        RepositoryHTTPClient.getRepositories(page: self.page + 1, success: { repositories in
+            
+            guard repositories.count > 0 else {
+                self.isLoading = false
+                self.hasConnectionError = false
+                self.activityIndicator.stopAnimating()
+                return
+            }
+            
+            self.repositories += repositories
+            self.tableView.reloadData()
+            self.page += 1
+            self.isLoading = false
+            self.hasConnectionError = false
+            self.activityIndicator.stopAnimating()
+            
+        }) { (statusCode, response, error) in
+            
+            if statusCode == HTTPClient.statusCodes.disconnected.rawValue && !self.hasConnectionError {
+                Alert.connectionError()
+                self.hasConnectionError = true
+            }
+            
+            self.isLoading = false
+            self.activityIndicator.stopAnimating()
+        }
     }
     
     // MARK: - Manage Transitions/segues to next screen
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-//        if segue.identifier == "RepositoryCellTap" {
-//            let selectedCell = sender as! UITableViewCell
-//            let indexPath = repositoriesTableView.indexPath(for: selectedCell)
-//        }
-    }
-    
-    
-    func fetchRepositories() {
-        //
+        let cell = sender as! UITableViewCell
+        let indexPath = self.tableView.indexPath(for: cell)
+        
+        let pullRequestVC = segue.destination as! PullRequestViewController
+        
+        let repositorySelected = self.repositories[(indexPath?.row)!]
+        
+        pullRequestVC.repositoryName = repositorySelected.name
+        pullRequestVC.repositoryOwner = repositorySelected.ownerNick
+        pullRequestVC.nameAndLastName = repositorySelected.ownerFullName
+        
+        tableView.deselectRow(at: indexPath!, animated: true)
     }
 
 }
@@ -54,7 +97,7 @@ extension RepositoriesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        let cell = repositoriesTableView.dequeueReusableCell(withIdentifier: "RepositoryCell") as! RepositoryTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RepositoryCell") as! RepositoryTableViewCell
         
         let height = cell.frame.height
         return height;
@@ -65,7 +108,7 @@ extension RepositoriesViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 10.0
+        return 5.0
     }
 }
 
@@ -73,21 +116,25 @@ extension RepositoriesViewController: UITableViewDelegate {
 extension RepositoriesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10;
+        return self.repositories.count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             
-        let cell = repositoriesTableView.dequeueReusableCell(withIdentifier: "RepositoryCell", for: indexPath) as! RepositoryTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RepositoryCell", for: indexPath) as! RepositoryTableViewCell
         
         cell.selectionStyle = .none
         
-        cell.username?.text = "marinofelipe"
-        cell.nameAndLastName?.text = "Felipe Marino"
-        cell.repositoryName?.text = "iOS Repo"
-        cell.repositoryDesc?.text = "this repo contains this ios test asdasda sad asd asd asda sd asd asd asd   "
-        cell.forksCount?.text = "399"
-        cell.starsCount?.text = "1411"
+        let repository = repositories[indexPath.row]
+        
+        cell.username?.text = repository.ownerNick
+        cell.nameAndLastName?.text = repository.ownerNick
+        cell.repositoryName?.text = repository.name
+        cell.repositoryDesc?.text = repository.description
+        cell.forksCount?.text = String(describing: repository.forks)
+        cell.starsCount?.text = String(describing: repository.favorites)
+        cell.userImage.load(stringUrl: repository.ownerAvatarUrl)
+        cell.nameAndLastName?.text = repository.ownerFullName
     
         return cell;
     }
@@ -97,6 +144,13 @@ extension RepositoriesViewController: UITableViewDataSource {
         print("row selected: \(indexPath.row)")
         
         self.performSegue(withIdentifier: "RepositoryCellTap", sender:tableView.cellForRow(at: indexPath))
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        if indexPath.row >= (self.repositories.count - 10) && !self.isLoading {
+            self.fetchRepositories()
+        }
     }
 }
 
@@ -111,12 +165,8 @@ extension RepositoriesViewController: UIScrollViewDelegate {
         
         if offsetY > contentHeight - scrollView.frame.size.height {
             
-//            indexOfPageToRequest += 1
-            
-//            api(indexOfPageToRequest)
-            
-            // tell the table view to reload with the new data
-            repositoriesTableView.reloadData()
+            fetchRepositories()
+            tableView.reloadData()
         }
     }
 }

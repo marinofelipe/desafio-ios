@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  desafio-ios
+
+  Created by Felipe Lefèvre Marino on 2/26/17.
+  Copyright © 2017 Felipe Marino. All rights reserved.
+*/
+
+// General
+"generalPullToRefreshLoadingLbl" = "Carregando...";
+"generalNormalTitleDefault" = "Aviso";
+"generalErrorTitleDefault" = "Ops";
+"generalErrorMessageDefault" = "Ops! Você parece estar sem internet =(";
+"generalBackButton" = "Voltar";
+
+// Repository
+"repositoryNavTitle" = "Github JavaPop";

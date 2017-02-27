@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="405" height="120"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="405" height="120"/>
+                <rect key="frame" x="0.0" y="0.0" width="405" height="119"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome Repositório" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBy-hi-c4j">
@@ -74,8 +74,11 @@
                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome Sobrenome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Na6-oD-ZZb">
-                        <rect key="frame" x="296" y="89" width="87" height="12"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome Sobrenome" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Na6-oD-ZZb">
+                        <rect key="frame" x="296" y="89" width="87" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="N4T-aJ-LWZ"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -88,6 +91,7 @@
                     <constraint firstItem="eXI-z2-aq3" firstAttribute="leading" secondItem="uBO-AD-6iu" secondAttribute="trailing" constant="30" id="PJz-vy-qcc"/>
                     <constraint firstItem="uBO-AD-6iu" firstAttribute="top" secondItem="YBy-hi-c4j" secondAttribute="bottom" id="QsF-ow-PyI"/>
                     <constraint firstItem="Bej-HO-ZBe" firstAttribute="top" secondItem="uBO-AD-6iu" secondAttribute="bottom" constant="10" id="QwN-5P-CFz"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Na6-oD-ZZb" secondAttribute="trailing" constant="14" id="Rw6-ER-WYl"/>
                     <constraint firstItem="4t1-8c-PXU" firstAttribute="leading" secondItem="Eg5-UW-Vrw" secondAttribute="trailing" constant="24" id="TcM-bh-RHW"/>
                     <constraint firstAttribute="trailingMargin" secondItem="eXI-z2-aq3" secondAttribute="trailing" constant="35" id="Thi-30-BGO"/>
                     <constraint firstItem="Na6-oD-ZZb" firstAttribute="centerX" secondItem="eXI-z2-aq3" secondAttribute="centerX" id="Wnc-WG-Y5C"/>

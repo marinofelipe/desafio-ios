@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RepositoryDetailCell" rowHeight="120" id="KGk-i7-Jjw" customClass="RepositoryDetailTableViewCell" customModule="desafio_ios" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PullRequestCell" rowHeight="120" id="KGk-i7-Jjw" customClass="PullRequestTableViewCell" customModule="desafio_ios" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="405" height="120"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -20,9 +20,8 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Título do pull request" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYl-h3-DeZ">
-                        <rect key="frame" x="18" y="13" width="264" height="27"/>
+                        <rect key="frame" x="18" y="13" width="364" height="27"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="264" id="8Zq-uM-EJd"/>
                             <constraint firstAttribute="height" constant="27" id="x1G-LD-Eod"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -37,12 +36,6 @@
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14/11/2016" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q23-Mh-lCO">
-                        <rect key="frame" x="330.5" y="14" width="56.5" height="14"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="E9a-Ug-e5t">
@@ -64,14 +57,22 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14/11/2016" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q23-Mh-lCO">
+                        <rect key="frame" x="330" y="91" width="57" height="10"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Y2d-J8-jhV" firstAttribute="leading" secondItem="WYl-h3-DeZ" secondAttribute="leading" id="3ef-4o-PhA"/>
+                    <constraint firstItem="Q23-Mh-lCO" firstAttribute="leading" relation="lessThanOrEqual" secondItem="9oV-dl-cbv" secondAttribute="trailing" constant="187" id="4WW-wL-Ite"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Q23-Mh-lCO" secondAttribute="bottom" constant="10" id="5Ap-TD-Ljf"/>
+                    <constraint firstItem="Q23-Mh-lCO" firstAttribute="top" secondItem="Y2d-J8-jhV" secondAttribute="bottom" constant="20" id="5XP-ab-3sV"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Q23-Mh-lCO" secondAttribute="trailing" constant="10" id="6wR-JW-Gan"/>
                     <constraint firstItem="T9b-lt-AgB" firstAttribute="leading" secondItem="E9a-Ug-e5t" secondAttribute="trailing" constant="8" id="EBK-o5-jZr"/>
                     <constraint firstItem="9oV-dl-cbv" firstAttribute="leading" secondItem="T9b-lt-AgB" secondAttribute="leading" id="MvK-B7-fsV"/>
-                    <constraint firstItem="Q23-Mh-lCO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="6" id="ODB-mb-J8Z"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="WYl-h3-DeZ" secondAttribute="trailing" constant="115" id="SMJ-ya-pic"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="WYl-h3-DeZ" secondAttribute="trailing" constant="15" id="SMJ-ya-pic"/>
                     <constraint firstItem="E9a-Ug-e5t" firstAttribute="leading" secondItem="Y2d-J8-jhV" secondAttribute="leading" id="XZi-PQ-Vx9"/>
                     <constraint firstItem="WYl-h3-DeZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="ftO-dY-Pw2"/>
                     <constraint firstItem="T9b-lt-AgB" firstAttribute="top" secondItem="Y2d-J8-jhV" secondAttribute="bottom" constant="10" id="glD-U5-5L4"/>
