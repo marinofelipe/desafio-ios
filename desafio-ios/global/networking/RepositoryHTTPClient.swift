@@ -8,14 +8,24 @@
 
 import Foundation
 
-typealias completionRepositorySuccess = (_ repositories: [Repository]) -> Void
-typealias completionRepositoryFailure = (_ statusCode: Int, _ response: Any?, _ error: Error?) -> Void
+internal enum ProgramLanguage: String {
+    case swift = "Swift"
+    case objectivec = "ObjectiveC"
+    case java = "Java"
+    case python = "Python"
+    case javascript = "Javascript"
+    case ruby = "Ruby"
+    case kotlin = "Kotlin"
+}
+
+internal typealias completionRepositorySuccess = (_ repositories: [Repository]) -> Void
+internal typealias completionRepositoryFailure = (_ statusCode: Int, _ response: Any?, _ error: Error?) -> Void
 
 class RepositoryHTTPClient: HTTPClient {
     
-    class func getRepositories(page: Int, success: @escaping completionRepositorySuccess, failure: @escaping completionRepositoryFailure) {
+    class func getRepositories(language: ProgramLanguage = .java, page: Int, success: @escaping completionRepositorySuccess, failure: @escaping completionRepositoryFailure) {
         
-        let url = "\(Bundle.main.apiBaseUrl)/search/repositories?q=language:Java&sort=stars&page=\(page)"
+        let url = "\(Bundle.main.apiBaseUrl)/search/repositories?q=language:\(language.rawValue)&sort=stars&page=\(page)"
         
         super.request(method: .GET, url: url, success: { (statusCode, response) in
             
@@ -43,5 +53,4 @@ class RepositoryHTTPClient: HTTPClient {
             
         }
     }
-    
 }
