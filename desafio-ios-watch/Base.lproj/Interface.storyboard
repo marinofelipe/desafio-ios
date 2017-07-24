@@ -1,14 +1,39 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11055"/>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11508"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider="target"/>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="desafio_ios_watch_Extension">
+                    <items>
+                        <label width="136" height="44" alignment="left" text="select a language" textAlignment="justified" numberOfLines="2" id="xkA-Gp-A1T"/>
+                        <table alignment="left" id="UIM-Up-cyT">
+                            <items>
+                                <tableRow identifier="LanguageRowType" id="5l9-x3-h4C" customClass="LanguageRowType" customModule="desafio_ios_watch_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="Kya-uC-6PB">
+                                        <items>
+                                            <label width="126" height="39" alignment="right" text="Label" textAlignment="left" id="rj1-D2-M5n"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="name" destination="rj1-D2-M5n" id="Cng-eU-ku2"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="tableView" destination="UIM-Up-cyT" id="X61-SS-43L"/>
+                    </connections>
+                </controller>
             </objects>
         </scene>
     </scenes>

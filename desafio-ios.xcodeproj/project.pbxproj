@@ -36,6 +36,7 @@
 		D56BE7451F263935009D716F /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56BE7441F263935009D716F /* ComplicationController.swift */; };
 		D56BE7471F263935009D716F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D56BE7461F263935009D716F /* Assets.xcassets */; };
 		D56BE74B1F263935009D716F /* desafio-ios-watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D56BE72F1F263934009D716F /* desafio-ios-watch.app */; };
+		D56BE7551F264099009D716F /* LanguageRowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56BE7541F264099009D716F /* LanguageRowType.swift */; };
 		D597D9E81E62862100104151 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = D597D9E71E62862100104151 /* Reachability.swift */; };
 		D598F8E11E61086A0058204A /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D598F8E01E61086A0058204A /* UINavigationController.swift */; };
 		D598F8E71E6116E70058204A /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D598F8E61E6116E70058204A /* UIBarButtonItem.swift */; };
@@ -151,6 +152,7 @@
 		D56BE7441F263935009D716F /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		D56BE7461F263935009D716F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D56BE7481F263935009D716F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D56BE7541F264099009D716F /* LanguageRowType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageRowType.swift; sourceTree = "<group>"; };
 		D597D9E71E62862100104151 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = global/utils/Reachability.swift; sourceTree = "<group>"; };
 		D598F8E01E61086A0058204A /* UINavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINavigationController.swift; path = global/extensions/UINavigationController.swift; sourceTree = "<group>"; };
 		D598F8E61E6116E70058204A /* UIBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIBarButtonItem.swift; path = global/extensions/UIBarButtonItem.swift; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 				D56BE7401F263935009D716F /* InterfaceController.swift */,
 				D56BE7421F263935009D716F /* ExtensionDelegate.swift */,
 				D56BE7441F263935009D716F /* ComplicationController.swift */,
+				D56BE7541F264099009D716F /* LanguageRowType.swift */,
 				D56BE7461F263935009D716F /* Assets.xcassets */,
 				D56BE7481F263935009D716F /* Info.plist */,
 			);
@@ -561,7 +564,7 @@
 					};
 					D56BE73A1F263935009D716F = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = XRA36B72E4;
+						DevelopmentTeam = X9MK4PBNUW;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -827,6 +830,7 @@
 			files = (
 				D56BE7431F263935009D716F /* ExtensionDelegate.swift in Sources */,
 				D56BE7411F263935009D716F /* InterfaceController.swift in Sources */,
+				D56BE7551F264099009D716F /* LanguageRowType.swift in Sources */,
 				D56BE7451F263935009D716F /* ComplicationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1109,10 +1113,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				DEVELOPMENT_TEAM = XRA36B72E4;
+				DEVELOPMENT_TEAM = X9MK4PBNUW;
 				INFOPLIST_FILE = "desafio-ios-watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "felipemarino.desafio-ios.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = "felipemarino.desafio-ios.watchkitapp.watchextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1126,10 +1130,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				DEVELOPMENT_TEAM = XRA36B72E4;
+				DEVELOPMENT_TEAM = X9MK4PBNUW;
 				INFOPLIST_FILE = "desafio-ios-watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "felipemarino.desafio-ios.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = "felipemarino.desafio-ios.watchkitapp.watchextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;

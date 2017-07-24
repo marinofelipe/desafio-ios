@@ -9,13 +9,7 @@
 import Foundation
 
 internal enum ProgramLanguage: String {
-    case swift = "Swift"
-    case objectivec = "ObjectiveC"
-    case java = "Java"
-    case python = "Python"
-    case javascript = "Javascript"
-    case ruby = "Ruby"
-    case kotlin = "Kotlin"
+    case swift, objectivec, java, python, javascript, ruby, kotlin
 }
 
 internal typealias completionRepositorySuccess = (_ repositories: [Repository]) -> Void

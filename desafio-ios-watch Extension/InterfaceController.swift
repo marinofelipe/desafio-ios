@@ -12,10 +12,14 @@ import Foundation
 
 class InterfaceController: WKInterfaceController {
 
+    @IBOutlet var tableView: WKInterfaceTable!
+    //TODO: thorw languages in a model. See if model can be interacted by iphone and watch. Use for both
+    private let programLangauges = ["swift", "objectivec", "java", "python", "javascript", "ruby", "kotlin"]
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
-        // Configure interface objects here.
+        setupTable()
     }
     
     override func willActivate() {
@@ -27,5 +31,17 @@ class InterfaceController: WKInterfaceController {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
-
+    
+    private func setupTable() {
+        tableView.setNumberOfRows(programLangauges.count, withRowType: "LanguageRowType")
+        for (index, language) in programLangauges.enumerated() {
+            if let row = tableView.rowController(at: index) as? LanguageRowType {
+                row.name.setText(language)
+            }
+        }
+    }
+    
+    override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
+        print("selected row: \(rowIndex)")
+    }
 }
