@@ -8,10 +8,6 @@
 
 import Foundation
 
-internal enum ProgramLanguage: String {
-    case swift, objectivec, java, python, javascript, ruby, kotlin
-}
-
 internal typealias completionRepositorySuccess = (_ repositories: [Repository]) -> Void
 internal typealias completionRepositoryFailure = (_ statusCode: Int, _ response: Any?, _ error: Error?) -> Void
 
@@ -44,7 +40,7 @@ class RepositoryHTTPClient: HTTPClient {
         }) { (statusCode, response, error) in
             
             failure(statusCode, response, error)
-            
+
         }
     }
 }

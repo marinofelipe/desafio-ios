@@ -7,14 +7,12 @@
 //
 
 import WatchKit
-import Foundation
-
+import WatchConnectivity
 
 class InterfaceController: WKInterfaceController {
 
     @IBOutlet var tableView: WKInterfaceTable!
-    //TODO: thorw languages in a model. See if model can be interacted by iphone and watch. Use for both
-    private let programLangauges = ["swift", "objectivec", "java", "python", "javascript", "ruby", "kotlin"]
+    private let programLanguages = ProgrammingLanguages.shared
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -23,7 +21,6 @@ class InterfaceController: WKInterfaceController {
     }
     
     override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
         super.willActivate()
     }
     
@@ -33,15 +30,25 @@ class InterfaceController: WKInterfaceController {
     }
     
     private func setupTable() {
-        tableView.setNumberOfRows(programLangauges.count, withRowType: "LanguageRowType")
-        for (index, language) in programLangauges.enumerated() {
+        tableView.setNumberOfRows(programLanguages.optionSet.count, withRowType: "LanguageRowType")
+        for (index, language) in programLanguages.optionSet.enumerated() {
             if let row = tableView.rowController(at: index) as? LanguageRowType {
-                row.name.setText(language)
+                row.name.setText(language.rawValue)
             }
         }
     }
     
     override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
         print("selected row: \(rowIndex)")
+        sendToParentAppSelected(language: programLanguages.optionSet[rowIndex])
+    }
+    
+    private func sendToParentAppSelected(language: ProgramLanguage) {
+        let dict = ["selectedLanguage": language]
+        WCSession.default().sendMessage(dict, replyHandler: { (replyDict) in
+            print("received from parent app as reply: \(replyDict)")
+        }) { (error) in
+            print("error \(error) on sending message to parent app")
+        }
     }
 }

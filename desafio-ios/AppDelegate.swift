@@ -7,14 +7,22 @@
 //
 
 import UIKit
+import WatchConnectivity
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var session: WCSession!
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        if WCSession.isSupported() {
+            session = WCSession.default()
+            session.delegate = self
+            session.activate()
+        }
         
         UIApplication.shared.statusBarStyle = .lightContent
         return true
@@ -42,6 +50,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func application(_ application: UIApplication, handleWatchKitExtensionRequest userInfo: [AnyHashable : Any]?, reply: @escaping ([AnyHashable : Any]?) -> Void) {
+        print("received info: \(userInfo)")
+    }
 }
 
+extension AppDelegate: WCSessionDelegate {
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        print("session did activate with state: \(activationState), and error: \(error)")
+    }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        print("session did become inactive")
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        print("session did deactivate")
+    }
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
+        print("did receive message: \(message)")
+    }
+}
