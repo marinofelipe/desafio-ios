@@ -28,6 +28,14 @@
 		D55063031E643DEE0095981F /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55063021E643DEE0095981F /* UIImageView.swift */; };
 		D552F94C1E6371BB0090AA05 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D552F94B1E6371BB0090AA05 /* HTTPClient.swift */; };
 		D552F94E1E6375270090AA05 /* JSONSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D552F94D1E6375270090AA05 /* JSONSerializer.swift */; };
+		D56BE7331F263935009D716F /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D56BE7311F263935009D716F /* Interface.storyboard */; };
+		D56BE7351F263935009D716F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D56BE7341F263935009D716F /* Assets.xcassets */; };
+		D56BE73C1F263935009D716F /* desafio-ios-watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D56BE73B1F263935009D716F /* desafio-ios-watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D56BE7411F263935009D716F /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56BE7401F263935009D716F /* InterfaceController.swift */; };
+		D56BE7431F263935009D716F /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56BE7421F263935009D716F /* ExtensionDelegate.swift */; };
+		D56BE7451F263935009D716F /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56BE7441F263935009D716F /* ComplicationController.swift */; };
+		D56BE7471F263935009D716F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D56BE7461F263935009D716F /* Assets.xcassets */; };
+		D56BE74B1F263935009D716F /* desafio-ios-watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D56BE72F1F263934009D716F /* desafio-ios-watch.app */; };
 		D597D9E81E62862100104151 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = D597D9E71E62862100104151 /* Reachability.swift */; };
 		D598F8E11E61086A0058204A /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D598F8E01E61086A0058204A /* UINavigationController.swift */; };
 		D598F8E71E6116E70058204A /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D598F8E61E6116E70058204A /* UIBarButtonItem.swift */; };
@@ -59,7 +67,46 @@
 			remoteGlobalIDString = 75790F1C1E607C420064C575;
 			remoteInfo = "desafio-ios";
 		};
+		D56BE73D1F263935009D716F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75790F151E607C420064C575 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D56BE73A1F263935009D716F;
+			remoteInfo = "desafio-ios-watch Extension";
+		};
+		D56BE7491F263935009D716F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75790F151E607C420064C575 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D56BE72E1F263934009D716F;
+			remoteInfo = "desafio-ios-watch";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D56BE7511F263935009D716F /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D56BE73C1F263935009D716F /* desafio-ios-watch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D56BE7531F263935009D716F /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				D56BE74B1F263935009D716F /* desafio-ios-watch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		36004FF87885B98FF137458B /* Pods-desafio-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-desafio-iosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-desafio-iosUITests/Pods-desafio-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -94,6 +141,16 @@
 		D55063021E643DEE0095981F /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		D552F94B1E6371BB0090AA05 /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPClient.swift; path = global/networking/HTTPClient.swift; sourceTree = "<group>"; };
 		D552F94D1E6375270090AA05 /* JSONSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONSerializer.swift; path = global/utils/JSONSerializer.swift; sourceTree = "<group>"; };
+		D56BE72F1F263934009D716F /* desafio-ios-watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "desafio-ios-watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D56BE7321F263935009D716F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		D56BE7341F263935009D716F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D56BE7361F263935009D716F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D56BE73B1F263935009D716F /* desafio-ios-watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "desafio-ios-watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D56BE7401F263935009D716F /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		D56BE7421F263935009D716F /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		D56BE7441F263935009D716F /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		D56BE7461F263935009D716F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D56BE7481F263935009D716F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D597D9E71E62862100104151 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = global/utils/Reachability.swift; sourceTree = "<group>"; };
 		D598F8E01E61086A0058204A /* UINavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINavigationController.swift; path = global/extensions/UINavigationController.swift; sourceTree = "<group>"; };
 		D598F8E61E6116E70058204A /* UIBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIBarButtonItem.swift; path = global/extensions/UIBarButtonItem.swift; sourceTree = "<group>"; };
@@ -136,6 +193,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D56BE7381F263935009D716F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -145,6 +209,8 @@
 				75790F1F1E607C420064C575 /* desafio-ios */,
 				75790F341E607C420064C575 /* desafio-iosTests */,
 				75790F3F1E607C420064C575 /* desafio-iosUITests */,
+				D56BE7301F263935009D716F /* desafio-ios-watch */,
+				D56BE73F1F263935009D716F /* desafio-ios-watch Extension */,
 				75790F1E1E607C420064C575 /* Products */,
 				E60871BDD48E34E82A2D14E6 /* Pods */,
 				DA79DB3C1BD278452611078C /* Frameworks */,
@@ -157,6 +223,8 @@
 				75790F1D1E607C420064C575 /* desafio-ios.app */,
 				75790F311E607C420064C575 /* desafio-iosTests.xctest */,
 				75790F3C1E607C420064C575 /* desafio-iosUITests.xctest */,
+				D56BE72F1F263934009D716F /* desafio-ios-watch.app */,
+				D56BE73B1F263935009D716F /* desafio-ios-watch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -225,6 +293,28 @@
 				D55063021E643DEE0095981F /* UIImageView.swift */,
 			);
 			name = extensions;
+			sourceTree = "<group>";
+		};
+		D56BE7301F263935009D716F /* desafio-ios-watch */ = {
+			isa = PBXGroup;
+			children = (
+				D56BE7311F263935009D716F /* Interface.storyboard */,
+				D56BE7341F263935009D716F /* Assets.xcassets */,
+				D56BE7361F263935009D716F /* Info.plist */,
+			);
+			path = "desafio-ios-watch";
+			sourceTree = "<group>";
+		};
+		D56BE73F1F263935009D716F /* desafio-ios-watch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D56BE7401F263935009D716F /* InterfaceController.swift */,
+				D56BE7421F263935009D716F /* ExtensionDelegate.swift */,
+				D56BE7441F263935009D716F /* ComplicationController.swift */,
+				D56BE7461F263935009D716F /* Assets.xcassets */,
+				D56BE7481F263935009D716F /* Info.plist */,
+			);
+			path = "desafio-ios-watch Extension";
 			sourceTree = "<group>";
 		};
 		D598F8DF1E6107C30058204A /* utils */ = {
@@ -349,10 +439,12 @@
 				75790F1B1E607C420064C575 /* Resources */,
 				9C8EA00DA8CCCCE7CA691F11 /* [CP] Embed Pods Frameworks */,
 				7D27DE2BD497FC90198F312B /* [CP] Copy Pods Resources */,
+				D56BE7531F263935009D716F /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D56BE74A1F263935009D716F /* PBXTargetDependency */,
 			);
 			name = "desafio-ios";
 			productName = "desafio-ios";
@@ -401,6 +493,40 @@
 			productReference = 75790F3C1E607C420064C575 /* desafio-iosUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		D56BE72E1F263934009D716F /* desafio-ios-watch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D56BE7521F263935009D716F /* Build configuration list for PBXNativeTarget "desafio-ios-watch" */;
+			buildPhases = (
+				D56BE72D1F263934009D716F /* Resources */,
+				D56BE7511F263935009D716F /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D56BE73E1F263935009D716F /* PBXTargetDependency */,
+			);
+			name = "desafio-ios-watch";
+			productName = "desafio-ios-watch";
+			productReference = D56BE72F1F263934009D716F /* desafio-ios-watch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		D56BE73A1F263935009D716F /* desafio-ios-watch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D56BE7501F263935009D716F /* Build configuration list for PBXNativeTarget "desafio-ios-watch Extension" */;
+			buildPhases = (
+				D56BE7371F263935009D716F /* Sources */,
+				D56BE7381F263935009D716F /* Frameworks */,
+				D56BE7391F263935009D716F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "desafio-ios-watch Extension";
+			productName = "desafio-ios-watch Extension";
+			productReference = D56BE73B1F263935009D716F /* desafio-ios-watch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -428,6 +554,16 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 75790F1C1E607C420064C575;
 					};
+					D56BE72E1F263934009D716F = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = X9MK4PBNUW;
+						ProvisioningStyle = Automatic;
+					};
+					D56BE73A1F263935009D716F = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = XRA36B72E4;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 75790F181E607C420064C575 /* Build configuration list for PBXProject "desafio-ios" */;
@@ -446,6 +582,8 @@
 				75790F1C1E607C420064C575 /* desafio-ios */,
 				75790F301E607C420064C575 /* desafio-iosTests */,
 				75790F3B1E607C420064C575 /* desafio-iosUITests */,
+				D56BE72E1F263934009D716F /* desafio-ios-watch */,
+				D56BE73A1F263935009D716F /* desafio-ios-watch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -475,6 +613,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D56BE72D1F263934009D716F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D56BE7351F263935009D716F /* Assets.xcassets in Resources */,
+				D56BE7331F263935009D716F /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D56BE7391F263935009D716F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D56BE7471F263935009D716F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,6 +821,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D56BE7371F263935009D716F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D56BE7431F263935009D716F /* ExtensionDelegate.swift in Sources */,
+				D56BE7411F263935009D716F /* InterfaceController.swift in Sources */,
+				D56BE7451F263935009D716F /* ComplicationController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -678,6 +843,16 @@
 			isa = PBXTargetDependency;
 			target = 75790F1C1E607C420064C575 /* desafio-ios */;
 			targetProxy = 75790F3D1E607C420064C575 /* PBXContainerItemProxy */;
+		};
+		D56BE73E1F263935009D716F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D56BE73A1F263935009D716F /* desafio-ios-watch Extension */;
+			targetProxy = D56BE73D1F263935009D716F /* PBXContainerItemProxy */;
+		};
+		D56BE74A1F263935009D716F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D56BE72E1F263934009D716F /* desafio-ios-watch */;
+			targetProxy = D56BE7491F263935009D716F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -696,6 +871,14 @@
 				75790F2A1E607C420064C575 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D56BE7311F263935009D716F /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D56BE7321F263935009D716F /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -886,6 +1069,76 @@
 			};
 			name = Release;
 		};
+		D56BE74C1F263935009D716F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = X9MK4PBNUW;
+				IBSC_MODULE = desafio_ios_watch_Extension;
+				INFOPLIST_FILE = "desafio-ios-watch/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "felipemarino.desafio-ios.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Debug;
+		};
+		D56BE74D1F263935009D716F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = X9MK4PBNUW;
+				IBSC_MODULE = desafio_ios_watch_Extension;
+				INFOPLIST_FILE = "desafio-ios-watch/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "felipemarino.desafio-ios.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Release;
+		};
+		D56BE74E1F263935009D716F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = XRA36B72E4;
+				INFOPLIST_FILE = "desafio-ios-watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "felipemarino.desafio-ios.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Debug;
+		};
+		D56BE74F1F263935009D716F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = XRA36B72E4;
+				INFOPLIST_FILE = "desafio-ios-watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "felipemarino.desafio-ios.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -924,6 +1177,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		D56BE7501F263935009D716F /* Build configuration list for PBXNativeTarget "desafio-ios-watch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D56BE74E1F263935009D716F /* Debug */,
+				D56BE74F1F263935009D716F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D56BE7521F263935009D716F /* Build configuration list for PBXNativeTarget "desafio-ios-watch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D56BE74C1F263935009D716F /* Debug */,
+				D56BE74D1F263935009D716F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

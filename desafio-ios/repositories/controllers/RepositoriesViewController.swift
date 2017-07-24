@@ -85,7 +85,6 @@ class RepositoriesViewController: UIViewController {
         
         tableView.deselectRow(at: indexPath!, animated: true)
     }
-
 }
 
 // MARK: - TableView Delegate
@@ -170,4 +169,3 @@ extension RepositoriesViewController: UIScrollViewDelegate {
         }
     }
 }
-
