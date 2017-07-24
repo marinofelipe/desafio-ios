@@ -35,6 +35,8 @@ class RepositoriesViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib.init(nibName: "RepositoryTableViewCell", bundle: nil), forCellReuseIdentifier: "RepositoryCell")
         tableView.separatorStyle = .singleLineEtched
+        tableView.estimatedRowHeight = 120
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     // MARK: - Fetch Repositories
@@ -92,14 +94,6 @@ extension RepositoriesViewController: UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1;
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RepositoryCell") as! RepositoryTableViewCell
-        
-        let height = cell.frame.height
-        return height;
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
