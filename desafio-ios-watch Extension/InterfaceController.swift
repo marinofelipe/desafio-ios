@@ -44,7 +44,7 @@ class InterfaceController: WKInterfaceController {
     }
     
     private func sendToParentAppSelected(language: ProgramLanguage) {
-        let dict = ["selectedLanguage": language]
+        let dict = ["selectedLanguage": language.rawValue]
         WCSession.default().sendMessage(dict, replyHandler: { (replyDict) in
             print("received from parent app as reply: \(replyDict)")
         }) { (error) in

@@ -24,6 +24,7 @@
 		75790F681E60DFDD0064C575 /* NSMutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75790F671E60DFDD0064C575 /* NSMutableAttributedString.swift */; };
 		75790F6A1E60EA140064C575 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75790F691E60EA140064C575 /* UIColor.swift */; };
 		94F69EF750743E79C8AF1BDC /* Pods_desafio_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B719CB68A169F3ED0D0A22F /* Pods_desafio_iosUITests.framework */; };
+		D51F361A1F26E33700E7EFB4 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51F36191F26E33700E7EFB4 /* UserDefaultsManager.swift */; };
 		D52D508D1F2676F100C5DD17 /* ProgrammingLanguages.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52D508C1F2676F100C5DD17 /* ProgrammingLanguages.swift */; };
 		D52D508E1F26781200C5DD17 /* ProgrammingLanguages.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52D508C1F2676F100C5DD17 /* ProgrammingLanguages.swift */; };
 		D5399D311E64502500764E99 /* SafariHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5399D301E64502500764E99 /* SafariHelper.swift */; };
@@ -140,6 +141,7 @@
 		8752F1308229668B079F7748 /* Pods-desafio-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-desafio-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-desafio-iosTests/Pods-desafio-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		9BBB29F1940B951F4817FD77 /* Pods-desafio-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-desafio-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-desafio-iosTests/Pods-desafio-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CD9A6B9F2B52F961FE61C8E3 /* Pods-desafio-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-desafio-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-desafio-ios/Pods-desafio-ios.release.xcconfig"; sourceTree = "<group>"; };
+		D51F36191F26E33700E7EFB4 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDefaultsManager.swift; path = global/utils/UserDefaultsManager.swift; sourceTree = "<group>"; };
 		D52D508C1F2676F100C5DD17 /* ProgrammingLanguages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgrammingLanguages.swift; path = global/models/ProgrammingLanguages.swift; sourceTree = "<group>"; };
 		D5399D301E64502500764E99 /* SafariHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SafariHelper.swift; path = global/utils/SafariHelper.swift; sourceTree = "<group>"; };
 		D55063021E643DEE0095981F /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 				D5AD254D1E637F2A007A0B42 /* PullRequestDecode.swift */,
 				D5AD254F1E63A99D007A0B42 /* Alert.swift */,
 				D5399D301E64502500764E99 /* SafariHelper.swift */,
+				D51F36191F26E33700E7EFB4 /* UserDefaultsManager.swift */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -809,6 +812,7 @@
 				D598F8F41E613F020058204A /* Date.swift in Sources */,
 				D598F8E71E6116E70058204A /* UIBarButtonItem.swift in Sources */,
 				D552F94E1E6375270090AA05 /* JSONSerializer.swift in Sources */,
+				D51F361A1F26E33700E7EFB4 /* UserDefaultsManager.swift in Sources */,
 				D552F94C1E6371BB0090AA05 /* HTTPClient.swift in Sources */,
 				D52D508D1F2676F100C5DD17 /* ProgrammingLanguages.swift in Sources */,
 				D5AD25471E637CFE007A0B42 /* RepositoryDecode.swift in Sources */,
