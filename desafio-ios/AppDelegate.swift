@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             session.activate()
         }
         
+        UserDefaultsManager.configureLastSelectedLanguage()
+        
         UIApplication.shared.statusBarStyle = .lightContent
         return true
     }

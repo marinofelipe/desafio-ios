@@ -49,13 +49,9 @@ class RepositoriesViewController: UIViewController {
     fileprivate func fetchRepositories() {
         self.isLoading = true
         
-        //TODO: Remove all this data conversions
-        var lastSelectedProgrmLanguage: ProgramLanguage? = nil
-        if let language = UserDefaultsManager.getNewLastSelectedLanguage() {
-            lastSelectedProgrmLanguage = ProgramLanguage(rawValue: language)
-        }
+        let language = UserDefaultsManager.getNewLastSelectedLanguage()
         
-        RepositoryHTTPClient.getRepositories(language: lastSelectedProgrmLanguage, page: self.page + 1, success: { repositories in
+        RepositoryHTTPClient.getRepositories(language: language, page: self.page + 1, success: { repositories in
             
             guard repositories.count > 0 else {
                 self.isLoading = false

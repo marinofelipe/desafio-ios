@@ -13,10 +13,9 @@ internal typealias completionRepositoryFailure = (_ statusCode: Int, _ response:
 
 class RepositoryHTTPClient: HTTPClient {
     
-    class func getRepositories(language: ProgramLanguage?, page: Int, success: @escaping completionRepositorySuccess, failure: @escaping completionRepositoryFailure) {
+    class func getRepositories(language: String = "Java", page: Int, success: @escaping completionRepositorySuccess, failure: @escaping completionRepositoryFailure) {
         
-        let dlanguage = language != nil ? language!.rawValue : "Java"
-        let url = "\(Bundle.main.apiBaseUrl)/search/repositories?q=language:\(dlanguage)&sort=stars&page=\(page)"
+        let url = "\(Bundle.main.apiBaseUrl)/search/repositories?q=language:\(language)&sort=stars&page=\(page)"
         
         super.request(method: .GET, url: url, success: { (statusCode, response) in
             
