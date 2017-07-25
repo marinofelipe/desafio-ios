@@ -29,6 +29,12 @@ class RepositoriesViewController: UIViewController {
         fetchRepositories()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //FIXME: Update to see if there is change on last selected language. if there is so, clean repositories and do networking call
+        fetchRepositories()
+    }
+    
     // MARK: - Setup Table View
     fileprivate func setupRepositoriesTableView() {
         tableView.delegate = self
@@ -43,7 +49,13 @@ class RepositoriesViewController: UIViewController {
     fileprivate func fetchRepositories() {
         self.isLoading = true
         
-        RepositoryHTTPClient.getRepositories(page: self.page + 1, success: { repositories in
+        //TODO: Remove all this data conversions
+        var lastSelectedProgrmLanguage: ProgramLanguage? = nil
+        if let language = UserDefaultsManager.getNewLastSelectedLanguage() {
+            lastSelectedProgrmLanguage = ProgramLanguage(rawValue: language)
+        }
+        
+        RepositoryHTTPClient.getRepositories(language: lastSelectedProgrmLanguage, page: self.page + 1, success: { repositories in
             
             guard repositories.count > 0 else {
                 self.isLoading = false

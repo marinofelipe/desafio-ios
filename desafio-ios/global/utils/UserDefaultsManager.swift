@@ -17,8 +17,8 @@ public class UserDefaultsManager {
         standard.set(language, forKey: lastSelectedLanguage)
     }
     
-    static func getNewLastSelectedLanguage() -> String {
-        let language = standard.object(forKey: lastSelectedLanguage) as! String
+    static func getNewLastSelectedLanguage() -> String? {
+        let language = standard.object(forKey: lastSelectedLanguage) as? String
         return language
     }
 }
