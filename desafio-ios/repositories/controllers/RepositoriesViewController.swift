@@ -33,7 +33,7 @@ class RepositoriesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //FIXME: Update to see if there is change on last selected language. if there is so, clean repositories and do networking call
+        
         fetchRepositories()
     }
     
@@ -49,6 +49,7 @@ class RepositoriesViewController: UIViewController {
     
     // MARK: - Fetch Repositories
     @objc fileprivate func fetchRepositories() {
+        //FIXME: Add better activity indicator to show that the content is beign reloaded
         self.isLoading = true
         
         let language = UserDefaultsManager.getLastSelectedLanguage()

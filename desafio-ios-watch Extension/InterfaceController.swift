@@ -44,6 +44,7 @@ class InterfaceController: WKInterfaceController {
     }
     
     private func sendToParentAppSelected(language: ProgramLanguage) {
+        //FIXME: 1. Make send again only when reply is received - 2. Add activity indicator or progress view to stop user from selecting another option
         let dict = ["selectedLanguage": language.rawValue]
         WCSession.default().sendMessage(dict, replyHandler: { (replyDict) in
             print("received from parent app as reply: \(replyDict)")
