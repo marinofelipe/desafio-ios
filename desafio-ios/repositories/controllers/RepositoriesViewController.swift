@@ -27,6 +27,8 @@ class RepositoriesViewController: UIViewController {
 
         setupRepositoriesTableView()
         fetchRepositories()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(fetchRepositories), name: NSNotification.Name(rawValue: "reloadRepositories"), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,10 +48,15 @@ class RepositoriesViewController: UIViewController {
     }
     
     // MARK: - Fetch Repositories
-    fileprivate func fetchRepositories() {
+    @objc fileprivate func fetchRepositories() {
         self.isLoading = true
         
-        let language = UserDefaultsManager.getNewLastSelectedLanguage()
+        let language = UserDefaultsManager.getLastSelectedLanguage()
+        let lastSearched = UserDefaultsManager.getLastSearchedLanguage()
+        
+        if language != lastSearched {
+            repositories.removeAll()
+        }
         
         RepositoryHTTPClient.getRepositories(language: language, page: self.page + 1, success: { repositories in
             
@@ -59,6 +66,8 @@ class RepositoriesViewController: UIViewController {
                 self.activityIndicator.stopAnimating()
                 return
             }
+            
+            UserDefaultsManager.setLastSearched(language: language)
             
             self.repositories += repositories
             self.tableView.reloadData()
@@ -165,9 +174,7 @@ extension RepositoriesViewController: UIScrollViewDelegate {
         let contentHeight = scrollView.contentSize.height
         
         if offsetY > contentHeight - scrollView.frame.size.height {
-            
             fetchRepositories()
-            tableView.reloadData()
         }
     }
 }

@@ -73,7 +73,8 @@ extension AppDelegate: WCSessionDelegate {
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
         print("did receive message: \(message)")
         if let language = message["selectedLanguage"] as? String {
-            UserDefaultsManager.setNewLastSelected(language: language)
+            UserDefaultsManager.setLastSelected(language: language)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadRepositories"), object: nil)
         }
     }
 }

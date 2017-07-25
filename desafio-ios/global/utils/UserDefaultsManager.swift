@@ -11,23 +11,33 @@ import Foundation
 public class UserDefaultsManager {
     
     static let standard = UserDefaults.standard
-    static let lastSelectedLanguage = "lastSelectedLanguage"
+    static let keyLastSelectedLang = "lastSelectedLanguage"
+    static let keyLastSearchedLang = "lastSearchedLanguage"
     
-    static func setNewLastSelected(language: String) {
-        standard.set(language, forKey: lastSelectedLanguage)
+    static func setLastSelected(language: String) {
+        standard.set(language, forKey: keyLastSelectedLang)
     }
     
-    static func getNewLastSelectedLanguage() -> String {
-        let language = standard.object(forKey: lastSelectedLanguage) as! String
+    static func getLastSelectedLanguage() -> String {
+        let language = standard.object(forKey: keyLastSelectedLang) as! String
         return language
     }
     
     static func configureLastSelectedLanguage() {
-        if let _ = standard.object(forKey: lastSelectedLanguage) as? String {
+        if let _ = standard.object(forKey: keyLastSelectedLang) as? String {
             return
         }
-        else {
-            standard.set("Java", forKey: lastSelectedLanguage)
+        standard.set("Java", forKey: keyLastSelectedLang)
+    }
+    
+    static func setLastSearched(language: String) {
+        standard.set(language, forKey: keyLastSearchedLang)
+    }
+    
+    static func getLastSearchedLanguage() -> String {
+        if let language = standard.object(forKey: keyLastSearchedLang) as? String {
+           return language
         }
+        return getLastSelectedLanguage()
     }
 }
