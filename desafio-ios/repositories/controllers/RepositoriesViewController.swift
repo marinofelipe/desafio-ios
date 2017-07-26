@@ -68,7 +68,11 @@ class RepositoriesViewController: UIViewController {
             UserDefaultsManager.setLastSearched(language: language)
             
             self.repositories += repositories
-            self.tableView.reloadData()
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
             self.page += 1
             self.hasConnectionError = false
             

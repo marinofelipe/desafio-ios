@@ -47,20 +47,22 @@ class InterfaceController: WKInterfaceController {
     
     private func sendToParentAppSelected(language: ProgramLanguage) {
         //FIXME: add kind of alert when its not connected with device
-        self.tableView.setHidden(true)
-        self.activityIndicator.setHidden(false)
-        self.activityIndicator.startActivityIndicator()
-        
         let dict = ["selectedLanguage": language.rawValue]
         
-        WCSession.default().sendMessage(dict, replyHandler: { (replyDict) in
-            print("received from parent app as reply: \(replyDict)")
+        if WCSession.default().isReachable {
+            self.tableView.setHidden(true)
+            self.activityIndicator.setHidden(false)
+            self.activityIndicator.startActivityIndicator()
             
-            self.tableView.setHidden(false)
-            self.activityIndicator.stopActivityIndicator()
-            self.activityIndicator.setHidden(true)
-        }) { (error) in
-            print("error \(error) on sending message to parent app")
+            WCSession.default().sendMessage(dict, replyHandler: { (replyDict) in
+                print("received from parent app as reply: \(replyDict)")
+                
+                self.tableView.setHidden(false)
+                self.activityIndicator.stopActivityIndicator()
+                self.activityIndicator.setHidden(true)
+            }) { (error) in
+                print("error \(error) on sending message to parent app")
+            }
         }
     }
 }

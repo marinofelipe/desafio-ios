@@ -57,6 +57,6 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
 
 extension ExtensionDelegate: WCSessionDelegate {
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        print("session did activate with state: \(activationState), and error: \(error)")
+        print("session did activate with state: \(activationState.rawValue), and error: \(error)")
     }
 }

@@ -9,6 +9,8 @@
 import Foundation
 import SafariServices
 
+
+//TODO: Change to open url on webViewController
 class SafariHelper: NSObject, SFSafariViewControllerDelegate {
     
     func openUrl(_ url: URL, viewController: UIViewController) {

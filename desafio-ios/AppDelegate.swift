@@ -17,13 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-        if WCSession.isSupported() {
-            session = WCSession.default()
-            session.delegate = self
-            session.activate()
-        }
-        
+        watchConnectivitySetup()
         UserDefaultsManager.configureLastSelectedLanguage()
         
         UIApplication.shared.statusBarStyle = .lightContent
@@ -55,11 +49,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, handleWatchKitExtensionRequest userInfo: [AnyHashable : Any]?, reply: @escaping ([AnyHashable : Any]?) -> Void) {
         print("received info: \(userInfo)")
     }
+    
+    private func watchConnectivitySetup() {
+        if WCSession.isSupported() {
+            session = WCSession.default()
+            session.delegate = self
+            session.activate()
+        }
+    }
 }
 
 extension AppDelegate: WCSessionDelegate {
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        print("session did activate with state: \(activationState), and error: \(error)")
+        print("session did activate with state: \(activationState.rawValue), and error: \(error)")
     }
     
     func sessionDidBecomeInactive(_ session: WCSession) {
@@ -73,11 +75,38 @@ extension AppDelegate: WCSessionDelegate {
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
         //FIXME: Send reply of updated succeeded
         print("did receive message: \(message)")
+
         if let language = message["selectedLanguage"] as? String {
-            RepositoriesUpdateManager.shared.update(withLanguage: language, completion: { (wasSuccessful) in
-                replyHandler(["updated": true])
-            })
+            if UIApplication.shared.applicationState == .background {
+                updateLanguageOnBackground(language: language, replyHandler: { (wasSuccessful) in
+                    replyHandler(["updated": wasSuccessful])
+                })
+            }
+            else {
+                RepositoriesUpdateManager.shared.update(withLanguage: language, completion: { (wasSuccessful) in
+                    replyHandler(["updated": wasSuccessful!])
+                })
+            }
         }
         replyHandler(["updated": false])
+    }
+    
+    private func updateLanguageOnBackground(language: String, replyHandler: @escaping ([String : Any]) -> Void) {
+        let taskID = self.beginBackgroundUpdateTask()
+        
+        RepositoriesUpdateManager.shared.update(withLanguage: language, completion: { (wasSuccessful) in
+            replyHandler(["updated": true])
+            self.endBackgroundUpdate(taskID: taskID)
+        })
+        replyHandler(["updated": false])
+        self.endBackgroundUpdate(taskID: taskID)
+    }
+    
+    func beginBackgroundUpdateTask() -> UIBackgroundTaskIdentifier {
+        return UIApplication.shared.beginBackgroundTask(expirationHandler: {})
+    }
+    
+    func endBackgroundUpdate(taskID: UIBackgroundTaskIdentifier) {
+        UIApplication.shared.endBackgroundTask(taskID)
     }
 }
