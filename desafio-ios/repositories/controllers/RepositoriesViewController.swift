@@ -55,6 +55,7 @@ class RepositoriesViewController: UIViewController {
         
         if language != lastSearched {
             repositories.removeAll()
+            self.page = 0
         }
         
         RepositoryHTTPClient.getRepositories(language: language, page: self.page + 1, success: { repositories in
