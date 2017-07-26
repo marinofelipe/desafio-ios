@@ -74,8 +74,10 @@ extension AppDelegate: WCSessionDelegate {
         //FIXME: Send reply of updated succeeded
         print("did receive message: \(message)")
         if let language = message["selectedLanguage"] as? String {
-            UserDefaultsManager.setLastSelected(language: language)
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadRepositories"), object: nil)
+            RepositoriesUpdateManager.shared.update(withLanguage: language, completion: { (wasSuccessful) in
+                replyHandler(["updated": true])
+            })
         }
+        replyHandler(["updated": false])
     }
 }

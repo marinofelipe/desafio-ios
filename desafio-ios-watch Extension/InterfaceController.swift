@@ -46,16 +46,21 @@ class InterfaceController: WKInterfaceController {
     }
     
     private func sendToParentAppSelected(language: ProgramLanguage) {
-        //FIXME: 1. Make send again only when reply is received - 2. Add activity indicator or progress view to stop user from selecting another option
-        let dict = ["selectedLanguage": language.rawValue]
-        WCSession.default().sendMessage(dict, replyHandler: { (replyDict) in
-            print("received from parent app as reply: \(replyDict)")
-        }) { (error) in
-            print("error \(error) on sending message to parent app")
-        }
-        
+        //FIXME: add kind of alert when its not connected with device
         self.tableView.setHidden(true)
         self.activityIndicator.setHidden(false)
         self.activityIndicator.startActivityIndicator()
+        
+        let dict = ["selectedLanguage": language.rawValue]
+        
+        WCSession.default().sendMessage(dict, replyHandler: { (replyDict) in
+            print("received from parent app as reply: \(replyDict)")
+            
+            self.tableView.setHidden(false)
+            self.activityIndicator.stopActivityIndicator()
+            self.activityIndicator.setHidden(true)
+        }) { (error) in
+            print("error \(error) on sending message to parent app")
+        }
     }
 }

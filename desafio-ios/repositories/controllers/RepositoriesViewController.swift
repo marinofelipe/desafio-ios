@@ -26,15 +26,13 @@ class RepositoriesViewController: UIViewController {
         navigationItem.backBarButtonItem?.plain()
 
         setupRepositoriesTableView()
-        fetchRepositories()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(fetchRepositories), name: NSNotification.Name(rawValue: "reloadRepositories"), object: nil)
+        fetchRepositories(withCompletion: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        fetchRepositories()
+        fetchRepositories(withCompletion: nil)
     }
     
     // MARK: - Setup Table View
@@ -48,7 +46,7 @@ class RepositoriesViewController: UIViewController {
     }
     
     // MARK: - Fetch Repositories
-    @objc fileprivate func fetchRepositories() {
+    public func fetchRepositories(withCompletion completion: FetchingWasSuccessful) {
         //FIXME: Add better activity indicator to show that the content is beign reloaded
         self.isLoading = true
         
@@ -60,7 +58,6 @@ class RepositoriesViewController: UIViewController {
         }
         
         RepositoryHTTPClient.getRepositories(language: language, page: self.page + 1, success: { repositories in
-            
             guard repositories.count > 0 else {
                 self.isLoading = false
                 self.hasConnectionError = false
@@ -75,10 +72,18 @@ class RepositoriesViewController: UIViewController {
             self.page += 1
             self.hasConnectionError = false
             
+            if let _completion = completion {
+                _completion(true)
+            }
+            
         }) { (statusCode, response, error) in
             if statusCode == HTTPClient.statusCodes.disconnected.rawValue && !self.hasConnectionError {
                 Alert.connectionError()
                 self.hasConnectionError = true
+            }
+            
+            if let _completion = completion {
+                _completion(false)
             }
         }
         
@@ -157,7 +162,7 @@ extension RepositoriesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         if indexPath.row >= (self.repositories.count - 10) && !self.isLoading {
-            self.fetchRepositories()
+            self.fetchRepositories(withCompletion: nil)
         }
     }
 }
@@ -172,7 +177,7 @@ extension RepositoriesViewController: UIScrollViewDelegate {
         let contentHeight = scrollView.contentSize.height
         
         if offsetY > contentHeight - scrollView.frame.size.height {
-            fetchRepositories()
+            fetchRepositories(withCompletion: nil)
         }
     }
 }
