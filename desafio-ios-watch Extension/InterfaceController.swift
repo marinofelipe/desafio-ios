@@ -11,6 +11,7 @@ import WatchConnectivity
 
 class InterfaceController: WKInterfaceController {
 
+    @IBOutlet var activityIndicator: WKInterfaceImage!
     @IBOutlet var tableView: WKInterfaceTable!
     private let programLanguages = ProgrammingLanguages.shared
     
@@ -18,6 +19,7 @@ class InterfaceController: WKInterfaceController {
         super.awake(withContext: context)
         
         setupTable()
+        activityIndicator.setHidden(true)
     }
     
     override func willActivate() {
@@ -51,5 +53,9 @@ class InterfaceController: WKInterfaceController {
         }) { (error) in
             print("error \(error) on sending message to parent app")
         }
+        
+        self.tableView.setHidden(true)
+        self.activityIndicator.setHidden(false)
+        self.activityIndicator.startActivityIndicator()
     }
 }

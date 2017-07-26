@@ -54,6 +54,9 @@
 		D5AD254E1E637F2A007A0B42 /* PullRequestDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AD254D1E637F2A007A0B42 /* PullRequestDecode.swift */; };
 		D5AD25501E63A99D007A0B42 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AD254F1E63A99D007A0B42 /* Alert.swift */; };
 		D5B772F61E627BDB009DF188 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B772F51E627BDB009DF188 /* Repository.swift */; };
+		D5EEA6371F28C50C00804403 /* InfoInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EEA6361F28C50C00804403 /* InfoInterfaceController.swift */; };
+		D5EEA63A1F28C61800804403 /* WKInterfaceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EEA6391F28C61800804403 /* WKInterfaceImage.swift */; };
+		D5EEA63C1F28C64200804403 /* WKinterfaceGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EEA63B1F28C64200804403 /* WKinterfaceGroup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +116,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		230992F46B5CBEA15D08B4E9 /* Pods_desafio_ios_watch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_desafio_ios_watch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36004FF87885B98FF137458B /* Pods-desafio-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-desafio-iosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-desafio-iosUITests/Pods-desafio-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		364DDB4772EF51496751797E /* Pods-desafio-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-desafio-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-desafio-ios/Pods-desafio-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		3933BD0418332267C68828EC /* Pods_desafio_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_desafio_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,10 +176,20 @@
 		D5AD254D1E637F2A007A0B42 /* PullRequestDecode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PullRequestDecode.swift; path = global/utils/PullRequestDecode.swift; sourceTree = "<group>"; };
 		D5AD254F1E63A99D007A0B42 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alert.swift; path = global/utils/Alert.swift; sourceTree = "<group>"; };
 		D5B772F51E627BDB009DF188 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Repository.swift; path = repositories/models/Repository.swift; sourceTree = "<group>"; };
+		D5EEA6361F28C50C00804403 /* InfoInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoInterfaceController.swift; sourceTree = "<group>"; };
+		D5EEA6391F28C61800804403 /* WKInterfaceImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WKInterfaceImage.swift; path = extensions/WKInterfaceImage.swift; sourceTree = "<group>"; };
+		D5EEA63B1F28C64200804403 /* WKinterfaceGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WKinterfaceGroup.swift; path = extensions/WKinterfaceGroup.swift; sourceTree = "<group>"; };
 		E03FE51F5EFC11DB31910CC4 /* Pods_desafio_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_desafio_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		259F5EAAD7216628CC61C9E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		75790F1A1E607C420064C575 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -323,7 +337,9 @@
 		D56BE73F1F263935009D716F /* desafio-ios-watch Extension */ = {
 			isa = PBXGroup;
 			children = (
+				D5EEA6381F28C5F900804403 /* extensions */,
 				D56BE7401F263935009D716F /* InterfaceController.swift */,
+				D5EEA6361F28C50C00804403 /* InfoInterfaceController.swift */,
 				D56BE7421F263935009D716F /* ExtensionDelegate.swift */,
 				D56BE7441F263935009D716F /* ComplicationController.swift */,
 				D56BE7541F264099009D716F /* LanguageRowType.swift */,
@@ -421,12 +437,22 @@
 			name = models;
 			sourceTree = "<group>";
 		};
+		D5EEA6381F28C5F900804403 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D5EEA6391F28C61800804403 /* WKInterfaceImage.swift */,
+				D5EEA63B1F28C64200804403 /* WKinterfaceGroup.swift */,
+			);
+			name = extensions;
+			sourceTree = "<group>";
+		};
 		DA79DB3C1BD278452611078C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				E03FE51F5EFC11DB31910CC4 /* Pods_desafio_ios.framework */,
 				3933BD0418332267C68828EC /* Pods_desafio_iosTests.framework */,
 				6B719CB68A169F3ED0D0A22F /* Pods_desafio_iosUITests.framework */,
+				230992F46B5CBEA15D08B4E9 /* Pods_desafio_ios_watch.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -517,6 +543,7 @@
 			buildPhases = (
 				D56BE72D1F263934009D716F /* Resources */,
 				D56BE7511F263935009D716F /* Embed App Extensions */,
+				259F5EAAD7216628CC61C9E6 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -846,10 +873,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D56BE7431F263935009D716F /* ExtensionDelegate.swift in Sources */,
+				D5EEA63C1F28C64200804403 /* WKinterfaceGroup.swift in Sources */,
+				D5EEA63A1F28C61800804403 /* WKInterfaceImage.swift in Sources */,
 				D56BE7411F263935009D716F /* InterfaceController.swift in Sources */,
 				D52D508E1F26781200C5DD17 /* ProgrammingLanguages.swift in Sources */,
 				D56BE7551F264099009D716F /* LanguageRowType.swift in Sources */,
 				D56BE7451F263935009D716F /* ComplicationController.swift in Sources */,
+				D5EEA6371F28C50C00804403 /* InfoInterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
