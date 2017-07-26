@@ -73,20 +73,17 @@ class RepositoriesViewController: UIViewController {
             self.repositories += repositories
             self.tableView.reloadData()
             self.page += 1
-            self.isLoading = false
             self.hasConnectionError = false
-            self.activityIndicator.stopAnimating()
             
         }) { (statusCode, response, error) in
-            
             if statusCode == HTTPClient.statusCodes.disconnected.rawValue && !self.hasConnectionError {
                 Alert.connectionError()
                 self.hasConnectionError = true
             }
-            
-            self.isLoading = false
-            self.activityIndicator.stopAnimating()
         }
+        
+        self.isLoading = false
+        self.activityIndicator.stopAnimating()
     }
     
     // MARK: - Manage Transitions/segues to next screen
