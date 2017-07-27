@@ -43,7 +43,6 @@
 		D597D9E81E62862100104151 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = D597D9E71E62862100104151 /* Reachability.swift */; };
 		D598F8E11E61086A0058204A /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D598F8E01E61086A0058204A /* UINavigationController.swift */; };
 		D598F8E71E6116E70058204A /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D598F8E61E6116E70058204A /* UIBarButtonItem.swift */; };
-		D598F8E91E6133EB0058204A /* CustomHamburguerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D598F8E81E6133EA0058204A /* CustomHamburguerItem.swift */; };
 		D598F8F41E613F020058204A /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = D598F8F31E613F020058204A /* Date.swift */; };
 		D5AD25411E6377B2007A0B42 /* RepositoryHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AD25401E6377B2007A0B42 /* RepositoryHTTPClient.swift */; };
 		D5AD25431E63798C007A0B42 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AD25421E63798C007A0B42 /* Bundle.swift */; };
@@ -166,7 +165,6 @@
 		D597D9E71E62862100104151 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = global/utils/Reachability.swift; sourceTree = "<group>"; };
 		D598F8E01E61086A0058204A /* UINavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINavigationController.swift; path = global/extensions/UINavigationController.swift; sourceTree = "<group>"; };
 		D598F8E61E6116E70058204A /* UIBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIBarButtonItem.swift; path = global/extensions/UIBarButtonItem.swift; sourceTree = "<group>"; };
-		D598F8E81E6133EA0058204A /* CustomHamburguerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomHamburguerItem.swift; path = repositories/views/CustomHamburguerItem.swift; sourceTree = "<group>"; };
 		D598F8F31E613F020058204A /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Date.swift; path = global/extensions/Date.swift; sourceTree = "<group>"; };
 		D5AD25401E6377B2007A0B42 /* RepositoryHTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositoryHTTPClient.swift; path = global/networking/RepositoryHTTPClient.swift; sourceTree = "<group>"; };
 		D5AD25421E63798C007A0B42 /* Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bundle.swift; path = global/extensions/Bundle.swift; sourceTree = "<group>"; };
@@ -421,7 +419,6 @@
 			children = (
 				75790F541E60A3CE0064C575 /* RepositoryTableViewCell.swift */,
 				75790F551E60A3CE0064C575 /* RepositoryTableViewCell.xib */,
-				D598F8E81E6133EA0058204A /* CustomHamburguerItem.swift */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -844,7 +841,6 @@
 			files = (
 				D5AD254E1E637F2A007A0B42 /* PullRequestDecode.swift in Sources */,
 				75790F231E607C420064C575 /* RepositoriesViewController.swift in Sources */,
-				D598F8E91E6133EB0058204A /* CustomHamburguerItem.swift in Sources */,
 				75790F681E60DFDD0064C575 /* NSMutableAttributedString.swift in Sources */,
 				75790F611E60CB0C0064C575 /* PullRequestTableViewCell.swift in Sources */,
 				D5AD25411E6377B2007A0B42 /* RepositoryHTTPClient.swift in Sources */,

@@ -55,7 +55,7 @@
                     <navigationItem key="navigationItem" title="GitHub Repositories" id="mRu-02-2wU">
                         <barButtonItem key="backBarButtonItem" title="Back" id="pBf-An-81x"/>
                         <barButtonItem key="leftBarButtonItem" enabled="NO" id="pMy-zD-u0c">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rlz-Sv-MGe" customClass="CustomHamburguerItem" customModule="desafio_ios" customModuleProvider="target">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rlz-Sv-MGe">
                                 <rect key="frame" x="16" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
@@ -117,16 +117,16 @@
                         <viewControllerLayoutGuide type="top" id="eKI-Bi-gef"/>
                         <viewControllerLayoutGuide type="bottom" id="bo3-hL-kLA"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="apa-Nh-JsP">
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="apa-Nh-JsP">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q0k-dJ-8yx">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="iEt-9b-k8J">
-                                <rect key="frame" x="177" y="291" width="20" height="20"/>
+                                <rect key="frame" x="177" y="323.5" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
