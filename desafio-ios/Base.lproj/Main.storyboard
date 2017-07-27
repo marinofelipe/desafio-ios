@@ -125,10 +125,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="iEt-9b-k8J">
+                                <rect key="frame" x="177" y="291" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="iEt-9b-k8J" firstAttribute="centerY" secondItem="apa-Nh-JsP" secondAttribute="centerY" id="CzE-DP-L6z"/>
                             <constraint firstItem="bo3-hL-kLA" firstAttribute="top" secondItem="Q0k-dJ-8yx" secondAttribute="bottom" id="M8L-Ky-aE7"/>
+                            <constraint firstItem="iEt-9b-k8J" firstAttribute="centerX" secondItem="apa-Nh-JsP" secondAttribute="centerX" id="caQ-14-F0m"/>
                             <constraint firstAttribute="trailing" secondItem="Q0k-dJ-8yx" secondAttribute="trailing" id="f72-Az-RUf"/>
                             <constraint firstItem="Q0k-dJ-8yx" firstAttribute="leading" secondItem="apa-Nh-JsP" secondAttribute="leading" id="oMb-ie-Vjh"/>
                             <constraint firstItem="Q0k-dJ-8yx" firstAttribute="top" secondItem="eKI-Bi-gef" secondAttribute="bottom" id="ywh-ag-DpN"/>
@@ -136,6 +141,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="iEt-9b-k8J" id="a6j-QJ-d6q"/>
                         <outlet property="webView" destination="Q0k-dJ-8yx" id="hyK-Uw-VLU"/>
                     </connections>
                 </viewController>
