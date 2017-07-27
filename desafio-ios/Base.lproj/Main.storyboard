@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="NDr-23-7lk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="NDr-23-7lk">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -26,10 +26,10 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PrototypeCell" id="qjg-5K-e5B">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qjg-5K-e5B" id="uOQ-9B-s2i">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -52,7 +52,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fWG-fg-ZLC" secondAttribute="bottom" id="UGQ-Ho-2Ud"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="GitHub JavaPop" id="mRu-02-2wU">
+                    <navigationItem key="navigationItem" title="GitHub Repositories" id="mRu-02-2wU">
                         <barButtonItem key="backBarButtonItem" title="Back" id="pBf-An-81x"/>
                         <barButtonItem key="leftBarButtonItem" enabled="NO" id="pMy-zD-u0c">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rlz-Sv-MGe" customClass="CustomHamburguerItem" customModule="desafio_ios" customModuleProvider="target">
@@ -102,11 +102,46 @@
                     <connections>
                         <outlet property="activityIndicator" destination="JZf-Zp-CXA" id="xe8-j2-p1x"/>
                         <outlet property="tableView" destination="gDR-vn-ORq" id="Scp-vw-c7h"/>
+                        <segue destination="ucd-bV-H9q" kind="show" identifier="OpenUrl" id="2YN-Xb-pNZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q8C-j8-ExS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1912.8" y="122.78860569715144"/>
+            <point key="canvasLocation" x="1930" y="123"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="NwJ-hD-v1t">
+            <objects>
+                <viewController id="ucd-bV-H9q" customClass="WebViewController" customModule="desafio_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eKI-Bi-gef"/>
+                        <viewControllerLayoutGuide type="bottom" id="bo3-hL-kLA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="apa-Nh-JsP">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q0k-dJ-8yx">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bo3-hL-kLA" firstAttribute="top" secondItem="Q0k-dJ-8yx" secondAttribute="bottom" id="M8L-Ky-aE7"/>
+                            <constraint firstAttribute="trailing" secondItem="Q0k-dJ-8yx" secondAttribute="trailing" id="f72-Az-RUf"/>
+                            <constraint firstItem="Q0k-dJ-8yx" firstAttribute="leading" secondItem="apa-Nh-JsP" secondAttribute="leading" id="oMb-ie-Vjh"/>
+                            <constraint firstItem="Q0k-dJ-8yx" firstAttribute="top" secondItem="eKI-Bi-gef" secondAttribute="bottom" id="ywh-ag-DpN"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <connections>
+                        <outlet property="webView" destination="Q0k-dJ-8yx" id="hyK-Uw-VLU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fzd-Gw-PBY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2812" y="122.78860569715144"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Bgr-Vz-8pB">

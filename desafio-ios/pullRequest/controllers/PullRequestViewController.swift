@@ -32,6 +32,7 @@ class PullRequestViewController: UIViewController {
     func setupRepositoryDetailTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        //FIXME change nib cells to sotryboard prototype cells
         tableView.register(UINib.init(nibName: "PullRequestTableViewCell", bundle: nil), forCellReuseIdentifier: "PullRequestCell")
         tableView.separatorStyle = .singleLineEtched
         tableView.estimatedRowHeight = 120
@@ -50,7 +51,19 @@ class PullRequestViewController: UIViewController {
             _ = self.navigationController?.popViewController(animated: true)
         }
     }
-
+    
+    //MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "OpenUrl" {
+            if let destination = segue.destination as? WebViewController {
+                if let indexPath = tableView.indexPathForSelectedRow {
+                    let pullRequest = self.pullRequests[indexPath.row]
+                    let url = URL(string: pullRequest.url)
+                    destination.url = url
+                }
+            }
+        }
+    }
 }
 
 // MARK: - TableView Delegate
@@ -99,11 +112,7 @@ extension PullRequestViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        let pullRequest = self.pullRequests[indexPath.row]
-        let url = NSURL(string: pullRequest.url)
-        SafariHelper().openUrl(url as! URL, viewController: self)
+        performSegue(withIdentifier: "OpenUrl", sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
