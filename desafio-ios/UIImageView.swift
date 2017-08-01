@@ -15,5 +15,4 @@ extension UIImageView {
         let url = NSURL(string: stringUrl)
         self.af_setImage(withURL: url as! URL, placeholderImage: UIImage(named: "avatarPlaceholder"), filter: nil, progress: nil, progressQueue: DispatchQueue.main, imageTransition: .crossDissolve(0.2), runImageTransitionIfCached: false, completion: nil)
     }
-    
 }

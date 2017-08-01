@@ -23,6 +23,7 @@ class PullRequestViewController: UIViewController {
         activityIndicator.startAnimating()
 
         title = self.repositoryName
+        navigationItem.backBarButtonItem?.plain()
         
         setupRepositoryDetailTableView()
         fetchPullRequests()
